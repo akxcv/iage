@@ -11,6 +11,8 @@
 		4DAB937D203CC14C007E7DA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAB937C203CC14C007E7DA8 /* ViewController.swift */; };
 		4DAB937F203CC14C007E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DAB937E203CC14C007E7DA8 /* Assets.xcassets */; };
 		4DAB9382203CC14C007E7DA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DAB9380203CC14C007E7DA8 /* Main.storyboard */; };
+		4DAB938B203CCED6007E7DA8 /* IageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAB938A203CCED6007E7DA8 /* IageViewController.swift */; };
+		4DAB938D203D603D007E7DA8 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAB938C203D603D007E7DA8 /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		4DAB9381203CC14C007E7DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4DAB9383203CC14C007E7DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DAB9384203CC14C007E7DA8 /* iage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iage.entitlements; sourceTree = "<group>"; };
+		4DAB938A203CCED6007E7DA8 /* IageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IageViewController.swift; sourceTree = "<group>"; };
+		4DAB938C203D603D007E7DA8 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				4DAB937A203CC14C007E7DA8 /* AppDelegate.swift */,
+				4DAB938C203D603D007E7DA8 /* EventMonitor.swift */,
 				4DAB937C203CC14C007E7DA8 /* ViewController.swift */,
+				4DAB938A203CCED6007E7DA8 /* IageViewController.swift */,
 				4DAB937E203CC14C007E7DA8 /* Assets.xcassets */,
 				4DAB9380203CC14C007E7DA8 /* Main.storyboard */,
 				4DAB9383203CC14C007E7DA8 /* Info.plist */,
@@ -136,6 +142,8 @@
 			files = (
 				4DAB937D203CC14C007E7DA8 /* ViewController.swift in Sources */,
 				4DAB937B203CC14C007E7DA8 /* AppDelegate.swift in Sources */,
+				4DAB938B203CCED6007E7DA8 /* IageViewController.swift in Sources */,
+				4DAB938D203D603D007E7DA8 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
