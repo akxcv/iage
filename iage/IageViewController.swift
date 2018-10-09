@@ -16,13 +16,16 @@ class IageViewController: NSViewController, NSTextFieldDelegate {
         dateField.stringValue = String(delegate.birthDay)
         monthSelect.selectItem(at: delegate.birthMonth - 1)
         yearField.stringValue = String(delegate.birthYear)
+        fractionalPartLengthField.stringValue = String(delegate.fractionalPartLength)
         dateField.delegate = self
         yearField.delegate = self
+        fractionalPartLengthField.delegate = self
     }
     
     @IBOutlet weak var dateField: NSTextField!
     @IBOutlet weak var monthSelect: NSPopUpButton!
     @IBOutlet weak var yearField: NSTextField!
+    @IBOutlet weak var fractionalPartLengthField: NSTextField!
 
     @IBAction func quitAction(_ sender: NSButton) {
         NSApplication.shared.terminate(sender)
@@ -36,17 +39,22 @@ class IageViewController: NSViewController, NSTextFieldDelegate {
     override func controlTextDidEndEditing(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
             let delegate = NSApplication.shared.delegate as! AppDelegate
-            print("yes")
             if (textField.tag == 1) {
-                print("date")
+                // date
                 if let number = Int(textField.stringValue) {
                     delegate.birthDay = number
                 }
             }
             if (textField.tag == 2) {
-                print("year")
+                // year
                 if let number = Int(textField.stringValue) {
                     delegate.birthYear = number
+                }
+            }
+            if (textField.tag == 3) {
+                // frac part length
+                if let number = Int(textField.stringValue) {
+                    delegate.fractionalPartLength = number
                 }
             }
             delegate.refresh()

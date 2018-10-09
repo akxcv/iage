@@ -10,7 +10,7 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    let statusItem = NSStatusBar.system.statusItem(withLength:100)
+    let statusItem = NSStatusBar.system.statusItem(withLength:120)
     weak var timer: Timer?
     var birthYear: Int = UserDefaults().integer(forKey: "year") {
         didSet {
@@ -25,6 +25,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var birthDay: Int = UserDefaults().integer(forKey: "date") {
         didSet {
             UserDefaults().set(birthDay, forKey: "date")
+        }
+    }
+    var fractionalPartLength: Int = UserDefaults().integer(forKey: "fractionalPartLength") {
+        didSet {
+            UserDefaults().set(fractionalPartLength, forKey: "fractionalPartLength")
         }
     }
     var birth: Date? = nil
@@ -43,6 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button = btn
             btn.title = "iage"
             btn.action = #selector(togglePopover(_:))
+            btn.font = NSFont.init(name: "Apple Braille", size: CGFloat(14))!
         }
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
@@ -69,18 +75,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         dateComponents.month = birthMonth
         dateComponents.day = birthDay
         birth = Calendar.current.date(from: dateComponents)
-        print(birthYear)
         startTimer()
     }
     
     func startTimer() {
         if let btn = button {
             timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { _ in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { _ in
                 if let birthTimestamp = self.birth?.timeIntervalSince1970 {
                     let diff = Date().timeIntervalSince1970 - birthTimestamp
                     let years = diff / 3.154e+7
-                    btn.title = String(format: "%.8f", years)
+                    btn.title = String(format: "%.\(self.fractionalPartLength)f", years)
                 }
             })
         }
